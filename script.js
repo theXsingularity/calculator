@@ -10,12 +10,14 @@ let sub =  (a,b) => a-b;
 let mul = (a,b) => a*b;
 let div = (a,b) => a/b;
 
+//get numbers from button
 function getInput(button) {
   input += button.innerHTML;
   number = parseInt(input);
   print(number);
 }
 
+//click operator either adds op or does operation
 function getOperator(button) {
     if (button.innerHTML === "+") {
         if(total === '' && store === '') {
@@ -75,6 +77,7 @@ function getOperator(button) {
     }
 }
 
+//operates when has an op, a stored or total number, and a number
 function operate(operator, num1, num2) {
     if(total === '' && store === '') return alert('must enter number');
     total = operator(num1,num2)
@@ -82,6 +85,21 @@ function operate(operator, num1, num2) {
     print((numTotal));
 }
 
+//clears screen to 0
+function blank() {
+    input='';
+    number = '';
+    store = '';
+    total = '';
+    print("0");
+  }  
+  
+  //prints a string to screen 
+  function print(string) {
+    output.textContent = string;
+  }
+
+//debugger to quickly see type of and values of vars
 function s() {
     console.log(`operation: ${op}`);
     console.log(`input: ${input} ${typeof(input)}`);
@@ -90,14 +108,3 @@ function s() {
     console.log(`total: ${total} ${typeof(number)}`);
 }
   
-function blank() {
-  input='';
-  number = '';
-  store = '';
-  total = '';
-  print("0");
-}  
-
-function print(string) {
-  output.textContent = string;
-}
