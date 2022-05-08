@@ -3,15 +3,11 @@ let number = '';
 let total ='';
 let op = '';
 
-
-
 //operators
 let add = (a,b) => a+b;
 let sub =  (a,b) => a-b; 
 let mul = (a,b) => a*b;
 let div = (a,b) => a/b;
-
-
 
 function getInput(button) {
   input += button.innerHTML;
@@ -71,16 +67,17 @@ function getOperator(button) {
 }
 
 function operate(operator, num1, num2) {
-  total = parseInt(operator(num1,num2))
+  total = operator(num1,num2)
   print((total));
   number = '';
 
 }
 
 function s() {
-  console.log(`input: ${input}`);
-  console.log(`number: ${number}`);
-  console.log(`total: ${total}`);
+    console.log(`operation: ${op}`);
+    console.log(`input: ${input} ${typeof(input)}`);
+    console.log(`number: ${number} ${typeof(number)}`);
+    console.log(`total: ${total} ${typeof(number)}`);
 }
 
 function t() {
@@ -93,7 +90,7 @@ function t() {
 function blank() {
   screen='';
   input = '';
-  storedNum = '';
+  number = '';
   total = '';
   print("0");
 }  
