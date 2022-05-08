@@ -1,23 +1,73 @@
-#main {
-    height: 500px;
-    width: 500px;
-    background-color: black;
-}
-
-#screen {
-    color:white;
-    background-color: grey;
-}
-
-#numbers {
-    display: inline-grid;
-    grid-template-columns: repeat(3, 1fr);
-    background-color: yellow;
-    padding: 5px;
-    
-}
-
-.num {
+#container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: lightblue;
+  }
+  
+  #calc{
     background-color: green;
+    padding: 20px;
+    height:400px;
+  }
+  
+  #output {
+    background-color:darkgray;
+    font-size: 50px;
+    border: 3px solid;
+    text-align: right;
+  }
+  
+  #buttons {
+    display: grid;
+    grid-template-columns: 3fr 1fr 2fr;
+    border: 3px solid;
+    
+  }
+  
+  #numbers {
+    display: grid;
+    align-content: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: darkgreen;  
     padding: 10px;
-}
+     border-left: 5px solid;
+    border-top: 5px solid;
+    border-bottom: 5px solid;
+  }
+  
+  .num {
+    height:50px;
+    font-size: 25px;
+  }
+  
+  #commands {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: coral;
+    border-left: 5px solid;
+    border-top: 5px solid;
+    border-bottom: 5px solid;
+  }
+  
+  .cmd {
+    background-color: darkorange;
+    font-size: 25px;
+  }
+  
+  #operators {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: fuchsia;
+     border: 5px solid;
+  }
+  
+  .op {
+    background-color: darkorchid;
+    font-size: 25px;
+  }
+  
+  #info {
+    text-align: center;
+    background-color: blanchedalmond;
+    border: 10px solid;
+  }

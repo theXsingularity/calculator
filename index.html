@@ -2,35 +2,44 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Sun Feb 13</title>
+        <title>Calculator!</title>
         <link rel="stylesheet" href="style.css">
         <script src="script.js" defer></script>
     </head>
 
     <body>
-        <h1>This will be a calculator</h1>
-        <div id="main">
-            <div id="screen">This will be a screen</div>
+        <p>This will eventually be a calculator!</p>
+        <div id="container">
+        <div id="calc">
+            <div id="output">OUTPUT GOES HERE</div>
+            <div id="buttons">
             <div id="numbers">
-                <button class="num">1</button>
-                <button class="num">2</button>
-                <button class="num">3</button>
-                <button class="num">4</button>
-                <button class="num">5</button>
-                <button class="num">6</button>
-                <button class="num">7</button>
-                <button class="num">8</button>
-                <button class="num">9</button>
-                <button class="cmd">clear</button>
-                <button class="num">0</button>
-                <button class="cmd">enter</button>
+                <button data-num="1" class="num" onclick="getInput(this)">1</button>
+                <button data-num="2" class="num" onclick="getInput(this)">2</button>
+                <button data-num="3" class="num" onclick="getInput(this)">3</button>
+                <button data-num="4" class="num" onclick="getInput(this)">4</button>
+                <button data-num="5" class="num" onclick="getInput(this)">5</button>
+                <button data-num="6" class="num" onclick="getInput(this)">6</button>
+                <button data-num="7" class="num" onclick="getInput(this)">7</button>
+                <button data-num="8" class="num" onclick="getInput(this)">8</button>
+                <button data-num="9" class="num" onclick="getInput(this)">9</button>
+                <button data-num="0" class="num" onclick="getInput(this)">0</button>
             </div>
-            <div id="operators"></div>
-                <button class="op">+</button>
-                <button class="op">-</button>
-                <button class="op">*</button>
-                <button class="op">-</button> 
+            <div id="commands">
+                <button class="cmd" onclick="operate(op, total, number)">=</button>
+                <button class="cmd" onclick="blank()">Clear</button>
             </div>
+            <div id="operators">
+                <button class="op" onclick="getOperator(this)">+</button>
+                <button class="op" onclick="getOperator(this)">-</button>
+                <button class="op" onclick="getOperator(this)">/</button>
+                <button class="op" onclick="getOperator(this)">x</button>
+            </div>
+            </div>
+        </div>
+        <div id="info">
+            <p>This is a basic calculator.  It does not employ .math or any fancy methods, just pure JS codes.  Only takes two inputs at a time</p>
+        </div>
     </body>
 </html>
 
