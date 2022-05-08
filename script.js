@@ -80,7 +80,7 @@ function getOperator(button) {
 //operates when has an op, a stored or total number, and a number
 function operate(operator, num1, num2) {
     if(total === '' && store === '') return alert('must enter number');
-    if(store === total) return alert('choose another number');
+    if(store === total && input === '') return alert('choose another number');
     total = operator(num1,num2)
     numTotal = parseFloat(total)
     print((numTotal));
