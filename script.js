@@ -27,7 +27,7 @@ function getOperator(button) {
             operate(op, store, number)
             console.log(total);
             op = add;
-            store = total;
+            store = parseFloat(total);
             input = '';
         }
     }
@@ -41,7 +41,7 @@ function getOperator(button) {
             operate(op, store, number)
             console.log(total);
             op = sub;
-            store = total;
+            store = parseFloat(total);
             input = '';
         }
     }
@@ -55,7 +55,7 @@ function getOperator(button) {
             operate(op, store, number)
             console.log(total);
             op = mul;
-            store = total;
+            store = parseFloat(total);
             input = '';
         }
     }
@@ -69,15 +69,16 @@ function getOperator(button) {
             operate(op, store, number)
             console.log(total);
             op = div;
-            store = total;
+            store = parseFloat(total);
             input = '';
         }
     }
 }
 
 function operate(operator, num1, num2) {
+    if(total === '' && store === '') return alert('must enter number');
     total = operator(num1,num2)
-    numTotal = parseInt(total)
+    numTotal = parseFloat(total)
     print((numTotal));
 }
 
