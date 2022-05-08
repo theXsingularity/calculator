@@ -108,4 +108,3 @@ function s() {
     console.log(`number: ${number} ${typeof(number)}`);
     console.log(`total: ${total} ${typeof(number)}`);
 }
-  
