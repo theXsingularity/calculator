@@ -69,7 +69,8 @@ function getOperator(button) {
 function operate(operator, num1, num2) {
   total = operator(num1,num2)
   print((total));
-  number = '';
+  number = parseInt(total)
+  total = '';
 
 }
 
