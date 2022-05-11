@@ -14,7 +14,7 @@ let div = (a,b) => a/b;
 //get numbers from button
 function getInput(button) {
   input += button.innerHTML;
-  number = parseInt(input);
+  number = parseInt(input);  // replace with input = parseInt(input) ... then change everything accordingly
   print(number);
   s();
 }
@@ -186,10 +186,16 @@ function operate(operator, num1, num2) {
     print(total);
     s();
 }
-
+ 
 //press = to operate
 document.getElementById("enter").addEventListener("click", function() {
-    if(total === '') {
+    if(input === '' && number === '' && stored === '' && total === '') {
+        print("choose a number 1st....");
+    }
+    else if(stored === '' && total === '' && total === '') {
+        print("chose another number...");
+    }
+    else if(total === '') {
     operate(op, stored, number)
     input = '';
     stored = total;
@@ -225,3 +231,9 @@ function s() {
     console.log(`stored: ${stored} ${typeof(stored)}`);
     console.log(`total: ${total} ${typeof(total)}`);
 }
+
+window.addEventListener('keydown', function(e) {
+    console.log(e.key);
+    input+=e.key
+    print(input)
+})
