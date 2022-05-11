@@ -1,8 +1,9 @@
 let input = '';
 let number = '';
-let store = '';
+let stored = '';
 let total ='';
 let op = '';
+
 
 //operators
 let add = (a,b) => a+b;
@@ -15,82 +16,198 @@ function getInput(button) {
   input += button.innerHTML;
   number = parseInt(input);
   print(number);
+  s();
 }
 
-//click operator either adds op or does operation
+//get operator
 function getOperator(button) {
     if (button.innerHTML === "+") {
-        if(total === '' && store === '') {
+        if(total === '' && stored === '') {
             op = add;
-            store = number;
+            stored = number;
             input = '';
+            number = '';
+            s();
         }
-        else if(store !== '' && number !=='') {
-            operate(op, store, number)
-            console.log(total);
+        else if(total === '' && input === '') {
             op = add;
-            store = parseFloat(total);
             input = '';
+            number = '';
+            s();
+        }
+        else if(total === '' && stored !== '' && number !== '') {
+            operate(op, stored, number);
+            op = add;
+            input = '';
+            number = '';
+            s();
+        }
+        else if(total !== "" && input === '') {
+            op = add;
+            stored = total;
+            total = '';
+            s();
+        }
+        else if (total !== '' && stored !== '' && number !== '') {
+            operate(op, total, number);
+            op = add;
+            input = '';
+            number = '';
+            s();
+        }
+        else {
+            op = add;
+            s();
         }
     }
     if (button.innerHTML === "-") {
-        if(total === '' && store === '') {
+        if(total === '' && stored === '') {
             op = sub;
-            store = number;
+            stored = number;
             input = '';
+            number = '';
+            s();
         }
-        else if(store !== '' && number !=='') {
-            operate(op, store, number)
-            console.log(total);
+        else if(total === '' && input === '') {
             op = sub;
-            store = parseFloat(total);
             input = '';
+            number = '';
+            s();
+        }
+        else if(total === '' && stored !== '' && number !== '') {
+            operate(op, stored, number);
+            op = sub;
+            input = '';
+            number = '';
+            s();
+        }
+        else if(total !== "" && input === '') {
+            op = sub;
+            stored = total;
+            total = '';
+            s();
+        }
+        else if (total !== '' && stored !== '' && number !== '') {
+            operate(op, total, number);
+            op = sub;
+            input = '';
+            number = '';
+            s();
+        }
+        else {
+            op = sub;
+            s();
         }
     }
-    if(button.innerHTML === "x") {
-        if(total === '' && store === '') {
+    if (button.innerHTML === "x") {
+        if(total === '' && stored === '') {
             op = mul;
-            store = number;
+            stored = number;
             input = '';
+            number = '';
+            s();
         }
-        else if(store !== '' && number !=='') {
-            operate(op, store, number)
-            console.log(total);
+        else if(total === '' && input === '') {
             op = mul;
-            store = parseFloat(total);
             input = '';
+            number = '';
+            s();
+        }
+        else if(total === '' && stored !== '' && number !== '') {
+            operate(op, stored, number);
+            op = mul;
+            input = '';
+            number = '';
+            s();
+        }
+        else if(total !== "" && input === '') {
+            op = mul;
+            stored = total;
+            total = '';
+            s();
+        }
+        else if (total !== '' && stored !== '' && number !== '') {
+            operate(op, total, number);
+            op = mul;
+            input = '';
+            number = '';
+            s();
+        }
+        else {
+            op = mul;
+            s();
         }
     }
-    if(button.innerHTML === "/") {
-        if(total === '' && store === '') {
+    if (button.innerHTML === "/") {
+        if(total === '' && stored === '') {
             op = div;
-            store = number;
+            stored = number;
             input = '';
+            number = '';
+            s();
         }
-        else if(store !== '' && number !=='') {
-            operate(op, store, number)
-            console.log(total);
+        else if(total === '' && input === '') {
             op = div;
-            store = parseFloat(total);
             input = '';
+            number = '';
+            s();
+        }
+        else if(total === '' && stored !== '' && number !== '') {
+            operate(op, stored, number);
+            op = div;
+            input = '';
+            number = '';
+            s();
+        }
+        else if(total !== '' && input === '') {
+            op = div;
+            stored = total;
+            total = '';
+            s();
+        }
+        else if (total !== '' && stored !== '' && number !== '') {
+            operate(op, total, number);
+            op = div;
+            input = '';
+            number = '';
+            s();
+        }
+        else {
+            op = div;
+            s();
         }
     }
 }
 
-//operates when has an op, a stored or total number, and a number
+//operate w/ operator and two numbers
 function operate(operator, num1, num2) {
-    if(total === '' && store === '') return alert('must enter number');
-    if(store === total && input === '') return alert('choose another number');
     total = operator(num1,num2)
-    numTotal = parseFloat(total)
-    print((numTotal));
+    total = parseFloat(total)
+    print(total);
+    s();
 }
+
+//press = to operate
+document.getElementById("enter").addEventListener("click", function() {
+    if(total === '') {
+    operate(op, stored, number)
+    input = '';
+    stored = total;
+    total = '';
+    s();
+    } else{
+        operate(op, total, number);
+        input = '';
+        stored = total;
+        total = '';
+    }
+});
 
 //clears screen to 0
 function blank() {
     input='';
     number = '';
-    store = '';
+    stored = '';
     total = '';
     print("0");
   }  
@@ -104,7 +221,7 @@ function blank() {
 function s() {
     console.log(`operation: ${op}`);
     console.log(`input: ${input} ${typeof(input)}`);
-    console.log(`store: ${store} ${typeof(store)}`);
     console.log(`number: ${number} ${typeof(number)}`);
-    console.log(`total: ${total} ${typeof(number)}`);
+    console.log(`stored: ${stored} ${typeof(stored)}`);
+    console.log(`total: ${total} ${typeof(total)}`);
 }
